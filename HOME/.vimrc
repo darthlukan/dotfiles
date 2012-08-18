@@ -98,3 +98,12 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+" Pathogen, package management for Vim
+call pathogen#infect('plugins')
+
+" Map F8 to TagBarToggle
+nmap <F8> :TagbarToggle<CR>
+
+" Map F9 to VimExplorer (file manager)
+nmap <F9> :VE<CR>
