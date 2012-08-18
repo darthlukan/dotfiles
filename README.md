@@ -7,7 +7,8 @@ All config files are from my $HOME directory, as such, all configs
 in this repo fall under HOME.  The simplest way of being able
 to use all of these files (if you're that brave) is to clone
 this repo, cd into it and execute:
-	 $ cp -r HOME/* ~/
+
+	$ cp -r HOME/* ~/
 
 All of my config files will be copied into your home directory.
 
