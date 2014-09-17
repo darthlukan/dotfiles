@@ -1,109 +1,187 @@
+" .vimrc
+" See: http://vimdoc.sourceforge.net/htmldoc/options.html for details
 
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2011 Apr 15
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+" For multi-byte character support (CJK support, for example):
+"set fileencodings=ucs-bom,utf-8,cp936,big5,euc-jp,euc-kr,gb18030,latin1
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
+set shell=/usr/bin/zsh
+" Begin vundle setup
 set nocompatible
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+filetype off
+filetype plugin indent off
 
-"#if has("vms")
-"	#set nobackup		" do not keep a backup file, use versions instead
-"  #else
-"	#set backup		" keep a backup file
-"  #endif
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
+filetype plugin on
+filetype plugin indent on
+syntax on
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
+" Bundles
+Bundle 'gmarik/vundle'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'tpope/vim-fugitive'
+Bundle 'scrooloose/nerdtree'
+Bundle 'klen/python-mode'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'Blackrush/vim-gocode', {'rtp': 'vim/'}
+Bundle 'scrooloose/syntastic'
+Bundle 'ervandew/supertab'
+Bundle 'majutsushi/tagbar'
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
+" Powerline setup
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+set laststatus=2
+set ambiwidth=single
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
+" Nerdtree
+map <F2> :NERDTreeToggle<CR>
+
+" Tagbar
+map <F3> :TagbarToggle<CR>
+
+" Python Mode
+let g:pymode_rope = 0
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_write = 1
+let g:pymode_virtualenv = 1
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = '<leader>b'
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+let g:pymode_folding = 0
+
+" Sytastic
+let g:syntastic_always_populate_loc_list = 1
+
+" SuperTab
+let g:SuperTabDefaultCompletionType = "context"
+
+" gotags
+let g:tagbar_type_go = {
+            \ 'ctagstype' : 'go',
+            \ 'kinds' : [
+                \ 'p:package',
+                \ 'i:imports:1',
+                \ 'c:constants',
+                \ 'v:variables',
+                \ 't:types',
+                \ 'n:interfaces',
+                \ 'w:fields',
+                \ 'e:embedded',
+                \ 'm:methods',
+                \ 'r:constructor',
+                \ 'f:functions'
+            \ ],
+            \ 'sro' : '.',
+            \ 'kind2scope' : {
+                \ 't' : 'ctype',
+                \ 'n' : 'ntype'
+            \ },
+            \ 'scope2kind' : {
+                \ 'ctype' : 't',
+                \ 'ntype' : 'n'
+            \ },
+            \ 'ctagsbin' : 'gotags',
+            \ 'ctagsargs' : '-sort -silent'
+\ }
+
+augroup vimrc_autocmds
+    autocmd!
+    " Highlight characters past column 120
+    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
+    autocmd FileType python match Excess /\%120v.*/
+    autocmd FileType python set nowrap
+    autocmd BufWritePre <buffer> :keepjumps Fmt
+augroup END
+
+" End vundle setup
+
+set tabstop=4       " Number of spaces that a <Tab> in the file counts for.
+ 
+set shiftwidth=4    " Number of spaces to use for each step of (auto)indent.
+ 
+set expandtab       " Use the appropriate number of spaces to insert a <Tab>.
+                    " Spaces are used in indents with the '>' and '<' commands
+                    " and when 'autoindent' is on. To insert a real tab when
+                    " 'expandtab' is on, use CTRL-V <Tab>.
+ 
+set smarttab        " When on, a <Tab> in front of a line inserts blanks
+                    " according to 'shiftwidth'. 'tabstop' is used in other
+                    " places. A <BS> will delete a 'shiftwidth' worth of space
+                    " at the start of the line.
+ 
+set showcmd         " Show (partial) command in status line.
+
+set number          " Show line numbers.
+
+set showmatch       " When a bracket is inserted, briefly jump to the matching
+                    " one. The jump is only done if the match can be seen on the
+                    " screen. The time to show the match can be set with
+                    " 'matchtime'.
+ 
+set hlsearch        " When there is a previous search pattern, highlight all
+                    " its matches.
+ 
+set incsearch       " While typing a search command, show immediately where the
+                    " so far typed pattern matches.
+ 
+set ignorecase      " Ignore case in search patterns.
+ 
+set smartcase       " Override the 'ignorecase' option if the search pattern
+                    " contains upper case characters.
+ 
+set backspace=2     " Influences the working of <BS>, <Del>, CTRL-W
+                    " and CTRL-U in Insert mode. This is a list of items,
+                    " separated by commas. Each item allows a way to backspace
+                    " over something.
+ 
+set autoindent      " Copy indent from current line when starting a new line
+                    " (typing <CR> in Insert mode or when using the "o" or "O"
+                    " command).  
+set textwidth=80    " Maximum width of text that is being inserted. A longer
+                    " line will be broken after white space to get this width.
+ 
+set formatoptions=c,q,r,t " This is a sequence of letters which describes how
+                    " automatic formatting is to be done.
+                    "
+                    " letter    meaning when present in 'formatoptions'
+                    " ------    ---------------------------------------
+                    " c         Auto-wrap comments using textwidth, inserting
+                    "           the current comment leader automatically.
+                    " q         Allow formatting of comments with "gq".
+                    " r         Automatically insert the current comment leader
+                    "           after hitting <Enter> in Insert mode. 
+                    " t         Auto-wrap text using textwidth (does not apply
+                    "           to comments)
+ 
+set ruler           " Show the line and column number of the cursor position,
+                    " separated by a comma.
+ 
+set background=dark " When set to "dark", Vim will try to use colors that look
+                    " good on a dark background. When set to "light", Vim will
+                    " try to use colors that look good on a light background.
+                    " Any other value is illegal.
+ 
+set mouse=a         " Enable the use of the mouse.
+set autochdir
+set clipboard=unnamed
+set colorcolumn=120
+set nobackup
+set nowritebackup
+set noswapfile
+set completeopt=longest,menuone
+set omnifunc=syntaxcomplete#Complete
+set termencoding=utf-8
+set term=xterm-256color
+
+if has ('gui_running')
+    highlight Pmenu guibg=#cccccc gui=bold
 endif
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-  set smartindent
-  set tabstop=4
-  set shiftwidth=4
-  set expandtab
-endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
-
-" Pathogen, package management for Vim
-call pathogen#infect('plugins')
-
-" Map F8 to TagBarToggle
-nmap <F8> :TagbarToggle<CR>
-
-" Map F9 to VimExplorer (file manager)
-nmap <F9> :VE<CR>

@@ -1,11 +1,10 @@
-# The following lines were added by compinstall
-
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
-zstyle ':completion:*' completions 1
-zstyle ':completion:*' format ''\''Completing %d'\'''
+# The following lines were added by compinstall 
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate 
+zstyle ':completion:*' completions 1 
+zstyle ':completion:*' format ''\''Completing %d'\''' 
 zstyle ':completion:*' glob 1
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' group-name '' 
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} 
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=** r:|=**' '+m:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 zstyle ':completion:*' max-errors 2 numeric
 zstyle ':completion:*' menu select=1
@@ -14,7 +13,9 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' substitute 1
 zstyle ':completion:*' use-compctl true
 zstyle ':completion:*' verbose true
-zstyle :compinstall filename '/home/your_username/.zshrc'
+zstyle :compinstall filename '/home/darthlukan/.zshrc'
+
+# source /usr/share/doc/pkgfile/command-not-found.zsh
 
 autoload -Uz compinit
 compinit
@@ -24,29 +25,47 @@ compinit
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+
 setopt appendhistory autocd beep extendedglob nomatch notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
-# Path stuffs
-export PATH=$PATH:$HOME/bin
+# OH MY ZSH
+ZSH=/usr/share/oh-my-zsh
+ZSH_THEME="agnoster"
 
-# Locale settings, this fixes PYTHONENV errors related to locale returning (None, None)
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+# plugins=(git)
+source $ZSH/oh-my-zsh.sh
+
 # Aliases
 alias ls='ls --color=always -aF'
-    # Known networked computers
-alias sshwife='ssh -X -p 22 username@ip_or_hostname'
-alias sshkid1='ssh -X -p 22 username@ip_or_hostname'
-alias sshkid2='ssh -X -p 22 username@ip_or_hostname'
-alias sshminisith='ssh -X -p 22 username@ip_or_hostname'
+alias cat='$HOME/go/bin/gocat'
+alias echo='$HOME/go/bin/gecho'
 
-# Colorize grep
-alias grep='grep --color=always'
+alias sshplayground='ssh darthlukan@146.185.138.193'
+alias sshdevelop='ssh darthlukan@146.185.163.163'
+alias sshminecraft='ssh darthlukan@188.226.227.65'
+
+# Vars
+export EDITOR="vim"
+export BROWSER="chromium"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# Virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
+# GOPATH
+export GOPATH="$HOME/go"
+
+# TagHub Path
+export TAGHUB_HOME="$HOME/PycharmProjects/TagHub/th3"
 
 
-#Prompt
-autoload -U promptinit
-promptinit 
-prompt elite2 green
+export PATH=$PATH:$HOME/bin:$GOPATH/bin:$TAGHUB_HOME/run
+
+# Java Fonts
+export JAVA_FONTS=/usr/share/fonts/TTF
+export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+
