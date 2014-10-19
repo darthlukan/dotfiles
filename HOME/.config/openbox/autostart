@@ -1,0 +1,12 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+
+(sleep 1s && xscreensaver -no-splash) &
+# (sleep 1s && tint2) &
+(sleep 1s && stalonetray) &
+(sleep 1s && volwheel) &
+(sleep 1s && lal --format "%H:%M:%S") &
+compton -cCGfFb -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
