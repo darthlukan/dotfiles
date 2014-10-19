@@ -5,7 +5,7 @@
 #
 
 (sleep 1s && xscreensaver -no-splash) &
-# (sleep 1s && tint2) &
+(sleep 1s && tilda) &
 (sleep 1s && stalonetray) &
 (sleep 1s && volwheel) &
 (sleep 1s && lal --format "%H:%M:%S") &
