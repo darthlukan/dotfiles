@@ -1,4 +1,4 @@
-My_Configs
+dotfiles
 ==========
 
 Config files that I use on all of my Linux systems.
