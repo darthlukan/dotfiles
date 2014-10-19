@@ -33,18 +33,12 @@ bindkey -e
 # OH MY ZSH
 ZSH=/usr/share/oh-my-zsh
 ZSH_THEME="agnoster"
-
-# plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
 alias ls='ls --color=always -aF'
 alias cat='$HOME/go/bin/gocat'
 alias echo='$HOME/go/bin/gecho'
-
-alias sshplayground='ssh darthlukan@146.185.138.193'
-alias sshdevelop='ssh darthlukan@146.185.163.163'
-alias sshminecraft='ssh darthlukan@188.226.227.65'
 
 # Vars
 export EDITOR="vim"
@@ -59,11 +53,8 @@ source /usr/bin/virtualenvwrapper.sh
 # GOPATH
 export GOPATH="$HOME/go"
 
-# TagHub Path
-export TAGHUB_HOME="$HOME/PycharmProjects/TagHub/th3"
-
-
-export PATH=$PATH:$HOME/bin:$GOPATH/bin:$TAGHUB_HOME/run
+# $PATH
+export PATH=$PATH:$HOME/bin:$GOPATH/bin
 
 # Java Fonts
 export JAVA_FONTS=/usr/share/fonts/TTF
