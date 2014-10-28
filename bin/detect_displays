@@ -1,0 +1,10 @@
+#!/usr/bin/sh
+
+connected=$(xrandr | grep " connected" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/")
+count=$(echo $connected | wc -w)
+dual_layout="$HOME/.screenlayout/default.sh"
+want=2
+
+if [ $count = $want ]; then
+    exec $dual_layout
+fi
