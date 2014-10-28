@@ -3,8 +3,8 @@
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
 
 <menu id="apps-term-menu" label="Terminal">
-    <item label="Terminator">
-        <action name="Execute"><command>terminator</command></action>
+    <item label="LilyTerm">
+        <action name="Execute"><command>lilyterm -l</command></action>
     </item>
 </menu>
 
