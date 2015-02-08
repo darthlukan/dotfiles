@@ -32,7 +32,7 @@ set $right semicolon
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec $TERMINAL
+bindsym Mod1+Return exec urxvt
 
 # kill focused window
 bindsym Mod1+Shift+q kill
@@ -169,7 +169,7 @@ client.urgent           #1A1A1A #CC6666 #444444 #828282
 
 bar {
         position top
-        tray_output primary
+        tray_output LVDS1
         status_command i3status
         colors {
             focused_workspace   #1A1A1A #1A1A1A #FAFAFA
