@@ -1,7 +1,7 @@
 urxvt*geometry:                220x52
 
-URxvt*font:xft:Dejavu Sans Mono for Powerline:pixelsize=10:antialias=true,style=regular
-URxvt*boldFont:xft:Dejavu Sans Mono for Powerline:pixelsize=10:antialias=true,style=regular
+URxvt*font:xft:Dejavu Sans Mono for Powerline:pixelsize=9:antialias=true,style=regular
+URxvt*boldFont:xft:Dejavu Sans Mono for Powerline:pixelsize=9:antialias=true,style=regular
 
 Xft.antialias: 1
 Xft.autohint: 0
@@ -11,7 +11,7 @@ Xft.hintstyle: hintfull
 
 URxvt*depth: 32
 URxvt*background: [80]#000000
-URxvt*foreground: [100]#ffffff
+URxvt*foreground: [80]#CCCCCC
 URxvt*borderless: 1
 URxvt*scrollBar:            false
 URxvt*scrollBar_right:      false
@@ -20,32 +20,57 @@ URxvt*termName:    rxvt-256color
 
 ! Black + DarkGrey
 URxvt.color0:  #000000
-URxvt.color8:  #727272
+URxvt.color8:  #1F1F1F
 ! Red
-URxvt.color1:  #ff7070
-URxvt.color9:  #ff8d8d
+URxvt.color1:  #B02323
+URxvt.color9:  #DB1414
 ! Green
-URxvt.color2:  #93ff4f
-URxvt.color10: #c8ffa8
+URxvt.color2:  #449447
+URxvt.color10: #2EBF33
 ! Yellow
-URxvt.color3:  #eab93d
-URxvt.color11: #ffc123
+URxvt.color3:  #AFB538
+URxvt.color11: #D9E320
 ! Blue
-URxvt.color4:  #3480f0
-URxvt.color12: #5090ff
+URxvt.color4:  #303796
+URxvt.color12: #5861E0
 ! Mangenta
-URxvt.color5:  #de5c00
-URxvt.color13: #f57900
+URxvt.color5:  #A13285
+URxvt.color13: #E663C5
 ! Cyan
-URxvt.color6:  #56cce2
-URxvt.color14: #89ddff
+URxvt.color6:  #2F9C9C
+URxvt.color14: #43D9D9
 ! LightGrey + White
-URxvt.color7:  #d5d5d5
-URxvt.color15: #ffffff
+URxvt.color7:  #CCCCCC
+URxvt.color15: #FFFFFF
 
 URxvt.perl-ext-common:  default,matcher,vtwheel,clipboard
-URxvt.url-launcher:      /usr/bin/firefox
+URxvt.url-launcher:      /usr/bin/google-chrome-stable
 URxvt.matcher.button:   1
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
 URxvt*loginShell: true
+
+! Black + DarkGrey
+*color0:  #000000
+*color8:  #1F1F1F
+! Red
+*color1:  #B02323
+*color9:  #DB1414
+! Green
+*color2:  #449447
+*color10: #2EBF33
+! Yellow
+*color3:  #AFB538
+*color11: #D9E320
+! Blue
+*color4:  #303796
+*color12: #5861E0
+! Mangenta
+*color5:  #A13285
+*color13: #E663C5
+! Cyan
+*color6:  #2F9C9C
+*color14: #43D9D9
+! LightGrey + White
+*color7:  #CCCCCC
+*color15: #FFFFFF
