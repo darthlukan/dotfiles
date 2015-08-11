@@ -22,9 +22,8 @@ def mem():
 
 
 def cpu():
-    psutil.cpu_percent(interval=1, percpu=False)
     percentage = "CPU: {0}%".format(
-        psutil.cpu_percent(interval=None, percpu=False))
+        psutil.cpu_percent(interval=1, percpu=False))
     return percentage
 
 
