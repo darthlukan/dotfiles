@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#
+# Author: Brian Tomlinson <darthlukan@gmail.com>
+# License: GPL2
+
 import os
 import psutil
 
