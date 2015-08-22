@@ -20,28 +20,28 @@ URxvt*termName:    rxvt-256color
 
 ! Black + DarkGrey
 URxvt.color0:  #000000
-URxvt.color8:  #1F1F1F
+URxvt.color8:  #181818
 ! Red
-URxvt.color1:  #B02323
-URxvt.color9:  #DB1414
+URxvt.color1:  #8E0000
+URxvt.color9:  #8E4545
 ! Green
-URxvt.color2:  #449447
-URxvt.color10: #2EBF33
+URxvt.color2:  #308E1D
+URxvt.color10: #528E45
 ! Yellow
-URxvt.color3:  #AFB538
-URxvt.color11: #D9E320
+URxvt.color3:  #8C8E1D
+URxvt.color11: #8D8E47
 ! Blue
-URxvt.color4:  #303796
-URxvt.color12: #5861E0
+URxvt.color4:  #25268E
+URxvt.color12: #47488E
 ! Mangenta
-URxvt.color5:  #A13285
-URxvt.color13: #E663C5
+URxvt.color5:  #8B258E
+URxvt.color13: #8A488C
 ! Cyan
-URxvt.color6:  #2F9C9C
-URxvt.color14: #43D9D9
+URxvt.color6:  #16888C
+URxvt.color14: #488A8C
 ! LightGrey + White
-URxvt.color7:  #CCCCCC
-URxvt.color15: #FFFFFF
+URxvt.color7:  #272727
+URxvt.color15: #EDEDED
 
 URxvt.perl-ext-common:  default,matcher,vtwheel,clipboard
 URxvt.url-launcher:      /usr/bin/google-chrome-stable
@@ -49,28 +49,3 @@ URxvt.matcher.button:   1
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
 URxvt*loginShell: true
-
-! Black + DarkGrey
-*color0:  #000000
-*color8:  #1F1F1F
-! Red
-*color1:  #B02323
-*color9:  #DB1414
-! Green
-*color2:  #449447
-*color10: #2EBF33
-! Yellow
-*color3:  #AFB538
-*color11: #D9E320
-! Blue
-*color4:  #303796
-*color12: #5861E0
-! Mangenta
-*color5:  #A13285
-*color13: #E663C5
-! Cyan
-*color6:  #2F9C9C
-*color14: #43D9D9
-! LightGrey + White
-*color7:  #CCCCCC
-*color15: #FFFFFF

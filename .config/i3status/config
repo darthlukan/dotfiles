@@ -8,32 +8,25 @@
 
 general {
         colors = true
+        color_good = "#458E4E"
+        color_degraded = "#8B8E45"
+        color_bad = "#8E4545"
         interval = 5
 }
 
 order += "disk /"
 order += "disk /home"
 order += "run_watch DHCP"
-order += "wireless wlan0"
-order += "ethernet eth0"
-order += "battery 0"
+order += "ethernet enp3s0"
 order += "load"
 order += "volume master"
 order += "tztime local"
 
-wireless wlan0 {
-        format_up = "W: %quality:|:%essid %ip"
-        format_down = "W: down"
-}
 
-ethernet eth0 {
+ethernet enp3s0 {
         # if you use %speed, i3status requires root privileges
         format_up = "E: %ip"
         format_down = "E: down"
-}
-
-battery 0 {
-        format = "%status %percentage %remaining"
 }
 
 run_watch DHCP {

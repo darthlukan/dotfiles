@@ -14,19 +14,13 @@
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
-set $up l
-set $down k
-set $left j
-set $right semicolon
+set $up k
+set $down j
+set $left h
+set $right l 
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -69,10 +63,10 @@ bindsym Mod1+Shift+Up move up
 bindsym Mod1+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod1+h split h
+bindsym Mod4+h split h
 
 # split in vertical orientation
-bindsym Mod1+v split v
+bindsym Mod4+v split v
 
 # enter fullscreen mode for the focused container
 bindsym Mod1+f fullscreen
@@ -95,11 +89,11 @@ bindsym Mod1+a focus parent
 #bindsym Mod1+d focus child
 
 # move the currently focused window to the scratchpad
-bindsym Mod1+Shift+minus move scratchpad
+bindsym Mod4+Shift+s move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym Mod1+minus scratchpad show
+bindsym Mod4+s scratchpad show
 
 # switch to workspace
 bindsym Mod1+1 workspace 1
@@ -125,12 +119,18 @@ bindsym Mod1+Shift+8 move container to workspace 8
 bindsym Mod1+Shift+9 move container to workspace 9
 bindsym Mod1+Shift+0 move container to workspace 10
 
+
 # reload the configuration file
 bindsym Mod1+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym Mod1+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# lock the screen
+bindsym Mod4+Shift+l exec "xscreensaver-command -lock"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -161,40 +161,28 @@ bindsym Mod1+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #
-
-client.focused          #1A1A1A #1A1A1A #CCCCCC #828282
-client.focused_inactive #1A1A1A #1A1A1A #969696 #828282
-client.unfocused        #1A1A1A #404040 #FAFAFA #828282
-client.urgent           #1A1A1A #CC6666 #444444 #828282
+                        #Border #backg  #text   #indicator
+client.focused          #181818 #181818 #666666 #272728
+client.focused_inactive #181818 #1C1C1C #666666 #38383B
+client.unfocused        #181818 #1C1C1C #666666 #38383B
+client.urgent           #181818 #8E4545 #666666 #828282
 
 bar {
         position top
-        tray_output LVDS1
+        tray_output DP-4
         status_command i3status
-        colors {
-            focused_workspace   #1A1A1A #1A1A1A #FAFAFA
-            active_workspace    #1A1A1A #1A1A1A #FAFAFA
-            inactive_workspace  #1A1A1A #444444 #FAFAFA
-            urgent_workspace    #1A1A1A #1A1A1A #FAFAFA
-            background                  #1A1A1A
-            statusline                          #FAFAFA
-            separator                           #FAFAFA
+        colors {                #Border #Backg  #Text
+            focused_workspace   #181818 #272727 #666666
+            active_workspace    #181818 #272727 #666666
+            inactive_workspace  #181818 #181818 #666666
+            urgent_workspace    #181818 #8E4545 #666666
+            background                  #181818
+            statusline                          #666666
+            separator                           #666666
         }
 }
 
-#######################################################################
-# automatically start i3-config-wizard to offer the user to create a
-# keysym-based config which used his favorite modifier (alt or windows)
-#
-# i3-config-wizard will not launch if there already is a config file
-# in ~/.i3/config.
-#
-# Please remove the following exec line:
-#######################################################################
-# exec i3-config-wizard
-
 # Autostart
-exec /bin/sh $HOME/bin/detect-displays 
 exec xscreensaver -no-splash 
 exec compton -cCGfFb -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
 exec nitrogen --restore
