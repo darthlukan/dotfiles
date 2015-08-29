@@ -168,18 +168,19 @@ client.unfocused        #181818 #1C1C1C #666666 #38383B
 client.urgent           #181818 #8E4545 #666666 #828282
 
 bar {
-        position top
-        tray_output DP-4
-        status_command i3status
-        colors {                #Border #Backg  #Text
-            focused_workspace   #181818 #272727 #666666
-            active_workspace    #181818 #272727 #666666
-            inactive_workspace  #181818 #181818 #666666
-            urgent_workspace    #181818 #8E4545 #666666
-            background                  #181818
-            statusline                          #666666
-            separator                           #666666
-        }
+    position top
+    tray_output DP-4
+    status_command ~/bin/baraction.sh
+
+    colors {                #Border #Backg  #Text
+        focused_workspace   #181818 #272727 #666666
+        active_workspace    #181818 #272727 #666666
+        inactive_workspace  #181818 #181818 #666666
+        urgent_workspace    #181818 #8E4545 #666666
+        background                  #181818
+        statusline                          #666666
+        separator                           #666666
+    }
 }
 
 # Autostart
