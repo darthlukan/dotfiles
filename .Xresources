@@ -1,7 +1,7 @@
 urxvt*geometry:                220x52
 
-URxvt*font:xft:Dejavu Sans Mono for Powerline:pixelsize=9:antialias=true,style=regular
-URxvt*boldFont:xft:Dejavu Sans Mono for Powerline:pixelsize=9:antialias=true,style=regular
+URxvt*font:xft:Fantasque Sans Mono:pixelsize=11:style=regular
+URxvt*boldFont:xft:Fantasque Sans Mono:pixelsize=11:style=regular
 
 Xft.antialias: 1
 Xft.autohint: 0
