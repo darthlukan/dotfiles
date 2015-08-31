@@ -26,6 +26,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'Blackrush/vim-gocode', {'rtp': 'vim/'}
+Bundle 'fatih/vim-go'
 Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
@@ -40,22 +41,6 @@ map <F2> :NERDTreeToggle<CR>
 
 " Tagbar
 map <F3> :TagbarToggle<CR>
-
-" Python Mode
-let g:pymode_rope = 0
-let g:pymode_doc = 1
-let g:pymode_doc_key = 'K'
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
-let g:pymode_lint_write = 1
-let g:pymode_virtualenv = 1
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_key = '<leader>b'
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-let g:pymode_folding = 0
 
 " Sytastic
 let g:syntastic_always_populate_loc_list = 1
@@ -91,6 +76,24 @@ let g:tagbar_type_go = {
             \ 'ctagsbin' : 'gotags',
             \ 'ctagsargs' : '-sort -silent'
 \ }
+
+" pymode
+let g:pymode_python = 'python'
+let g:pymode_rope = 0
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_write = 1
+let g:pymode_virtualenv = 1
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = '<leader>b'
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+let g:pymode_folding = 0
+
 
 augroup vimrc_autocmds
     autocmd!
@@ -170,6 +173,9 @@ set background=dark " When set to "dark", Vim will try to use colors that look
                     " Any other value is illegal.
  
 set mouse=a         " Enable the use of the mouse.
+set laststatus=2
+set showtabline=2
+set noshowmode
 set autochdir
 set clipboard=unnamed
 set colorcolumn=120
