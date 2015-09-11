@@ -184,6 +184,6 @@ bar {
 }
 
 # Autostart
-exec xscreensaver -no-splash 
-exec compton -cCGfFb -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
-exec nitrogen --restore
+exec xscreensaver -no-splash
+exec xcompmgr -c -C -t-5 -l-5 -r4.2 -o.70
+exec ~/.fehbg

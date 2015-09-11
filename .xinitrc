@@ -1,5 +1,10 @@
 #!/bin/bash
-# ~/.xinitrc
+
+# Because this doesn't always get loaded properly
+xrdb -merge $HOME/.Xresources
+
+# GUI Vars only!
+export DE=i3
 
 # Engage
-exec openbox-session
+exec i3
