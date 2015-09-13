@@ -10,8 +10,8 @@ Xft.hinting: 1
 Xft.hintstyle: hintfull
 
 URxvt*depth: 32
-URxvt*background: [80]#000000
-URxvt*foreground: [80]#CCCCCC
+URxvt*background: [90]#000000
+URxvt*foreground: [97]#CCCCCC
 URxvt*borderless: 1
 URxvt*scrollBar:            false
 URxvt*scrollBar_right:      false
