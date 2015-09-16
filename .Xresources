@@ -1,7 +1,9 @@
+#include </home/darthlukan/.xres/mine>
+
 urxvt*geometry:                220x52
 
-URxvt*font:xft:Fantasque Sans Mono:pixelsize=11:style=regular
-URxvt*boldFont:xft:Fantasque Sans Mono:pixelsize=11:style=regular
+URxvt*font:xft:Hack:pixelsize=11:style=regular
+URxvt*boldFont:xft:Hack:pixelsize=11:style=regular
 
 Xft.antialias: 1
 Xft.autohint: 0
@@ -10,8 +12,8 @@ Xft.hinting: 1
 Xft.hintstyle: hintfull
 
 URxvt*depth: 32
-URxvt*background: [90]#000000
-URxvt*foreground: [97]#CCCCCC
+URxvt*background: bg
+URxvt*foreground: fg
 URxvt*borderless: 1
 URxvt*scrollBar:            false
 URxvt*scrollBar_right:      false
@@ -19,33 +21,55 @@ URxvt*saveLines:  5000
 URxvt*termName:    rxvt-256color
 
 ! Black + DarkGrey
-URxvt.color0:  #000000
-URxvt.color8:  #181818
+URxvt.color0:  blk
+URxvt.color8:  bblk
 ! Red
-URxvt.color1:  #8E0000
-URxvt.color9:  #8E4545
+URxvt.color1:  red
+URxvt.color9:  red
 ! Green
-URxvt.color2:  #308E1D
-URxvt.color10: #528E45
+URxvt.color2:  grn
+URxvt.color10: grn
 ! Yellow
-URxvt.color3:  #8C8E1D
-URxvt.color11: #8D8E47
+URxvt.color3:  ylw
+URxvt.color11: ylw
 ! Blue
-URxvt.color4:  #25268E
-URxvt.color12: #47488E
+URxvt.color4:  blu
+URxvt.color12: blu
 ! Mangenta
-URxvt.color5:  #8B258E
-URxvt.color13: #8A488C
+URxvt.color5:  mag
+URxvt.color13: mag
 ! Cyan
-URxvt.color6:  #16888C
-URxvt.color14: #488A8C
+URxvt.color6:  cyn
+URxvt.color14: cyn
 ! LightGrey + White
-URxvt.color7:  #272727
-URxvt.color15: #EDEDED
+URxvt.color7:  wht
+URxvt.color15: wht
 
 URxvt.perl-ext-common:  default,matcher,vtwheel,clipboard
-URxvt.url-launcher:      /usr/bin/google-chrome-stable
+URxvt.url-launcher:      /usr/bin/chromium
 URxvt.matcher.button:   1
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
 URxvt*loginShell: true
+
+! Colors
+*background:   bg
+*foreground:   fg
+*cursorColor:  wht
+
+*color0:      blk
+*color8:      bblk
+*color1:      red
+*color9:      red
+*color2:      grn
+*color10:     grn
+*color3:      ylw
+*color11:     ylw
+*color4:      blu
+*color12:     blu
+*color5:      mag
+*color13:     mag
+*color6:      cyn
+*color14:     cyn
+*color7:      wht
+*color15:     wht
