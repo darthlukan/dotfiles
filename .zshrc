@@ -14,9 +14,6 @@ zstyle ':completion:*' substitute 1
 zstyle ':completion:*' use-compctl true
 zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/home/darthlukan/.zshrc'
-
-# source /usr/share/doc/pkgfile/command-not-found.zsh
-
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
@@ -30,25 +27,19 @@ setopt appendhistory autocd beep extendedglob nomatch notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
-# OH MY ZSH
-ZSH=/usr/share/oh-my-zsh
-ZSH_THEME="agnoster"
-source $ZSH/oh-my-zsh.sh
-
 # Aliases
 alias ls='ls --color=always -aF'
 alias cat='$HOME/go/bin/gocat'
 alias echo='$HOME/go/bin/gecho'
 
 # Vars
+export TERMINAL="urxvt"
+export TERM="xterm-256color"
 export EDITOR="vim"
+export RTV_EDITOR=$EDITOR
 export BROWSER="chromium"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-
-# Virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
 
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
@@ -58,9 +49,24 @@ source /usr/bin/virtualenvwrapper.sh
 export GOPATH="$HOME/go"
 
 # $PATH
-export PATH=$PATH:$HOME/bin:$GOPATH/bin
+export PATH=$PATH:$HOME/bin:$GOPATH/bin:
 
 # Java Fonts
 export JAVA_FONTS=/usr/share/fonts/TTF
 export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
+# Prompt
+autoload -U colors; colors # Colors are good
+
+build_prompt() {
+    local p
+    p=()
+    if [[ $UID -eq 0 ]]; then
+        p+="%{$fg[yellow]%}⚡" 
+    else
+        p+="%{$fg[green]%}⊡"
+    fi
+    [[ -n $p ]] && echo "$p"  # Need 'echo' or the color escapes cause errors
+}
+# Engage
+PROMPT=" $(build_prompt)%{$reset_color%} ❱ "  # Spaces count!
