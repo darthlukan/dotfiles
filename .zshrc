@@ -50,6 +50,10 @@ export LC_ALL="en_US.UTF-8"
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
+# Virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
 # GOPATH
 export GOPATH="$HOME/go"
 
