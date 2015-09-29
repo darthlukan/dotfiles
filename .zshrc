@@ -29,8 +29,8 @@ bindkey -e
 
 # Aliases
 alias ls='ls --color=always -aF'
+alias less='less -r'
 alias cat='$HOME/go/bin/gocat'
-alias echo='$HOME/go/bin/gecho'
 
 # Vars
 export TERMINAL="urxvt"
@@ -40,16 +40,16 @@ export RTV_EDITOR=$EDITOR
 export BROWSER="chromium"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-
-# Virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
+export XDG_CONFIG_HOME="$HOME/.config"
+export GOOGLE_API_KEY="AIzaSyBHSsJCvIS5oANVYX4lvwRLcJxVT9QG3J0"
+export GOOGLE_DEFAULT_CLIENT_ID="782909245165-5rdk7tqt7mfa17d0oqdnctvtgi5vhop1.apps.googleusercontent.com"
+export GOOGLE_DEFAULT_CLIENT_SECRET="nLFIITjDRk7fQKBKQa3OFsY6"
 
 # GOPATH
 export GOPATH="$HOME/go"
 
 # $PATH
-export PATH=$PATH:$HOME/bin:$GOPATH/bin:
+export PATH=$PATH:$HOME/bin:$GOPATH/bin:/sbin:/usr/sbin
 
 # Java Fonts
 export JAVA_FONTS=/usr/share/fonts/TTF

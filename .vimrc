@@ -20,7 +20,8 @@ syntax on
 
 " Bundles
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'itchyny/lightline.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
@@ -30,11 +31,16 @@ Bundle 'fatih/vim-go'
 Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
+Bundle 'airblade/vim-gitgutter'
 
-" Powerline setup
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
-set laststatus=2
+"lightline setup
+set guifont=Fantasque\ Sans\ Mono\ 10
 set ambiwidth=single
+set laststatus=2
+let g:lightline = {}
+let g:lightline.colorscheme = 'Tomorrow_Night'
+let g:lightline.separator = { 'left': '', 'right': '' }
+let g:lightline.subseparator = { 'left': '', 'right': '' }
 
 " Nerdtree
 map <F2> :NERDTreeToggle<CR>
@@ -182,6 +188,7 @@ set colorcolumn=120
 set nobackup
 set nowritebackup
 set noswapfile
+set noundofile
 set completeopt=longest,menuone
 set omnifunc=syntaxcomplete#Complete
 set termencoding=utf-8
