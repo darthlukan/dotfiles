@@ -195,6 +195,6 @@ set termencoding=utf-8
 set term=xterm-256color
 
 if has ('gui_running')
-    highlight Pmenu guibg=#cccccc gui=bold
+    highlight Pmenu guibg=#0a0a0a gui=bold
 endif
-
+colorscheme mine
