@@ -8,7 +8,7 @@
 # To get a config file with the same key positions, but for your current
 # layout, use the i3-config-wizard
 #
-
+new_window pixel 1
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -162,10 +162,10 @@ bindsym Mod1+r mode "resize"
 # finds out, if available)
 #
                         #Border #backg  #text   #indicator
-client.focused          #181818 #181818 #666666 #272728
-client.focused_inactive #181818 #1C1C1C #666666 #38383B
-client.unfocused        #181818 #1C1C1C #666666 #38383B
-client.urgent           #181818 #8E4545 #666666 #828282
+client.focused          #3191cb #000001 #9e9e91 #133f48
+client.focused_inactive #040813 #000001 #9e9e91 #1a4178
+client.unfocused        #040813 #000001 #9e9e91 #1a4178
+client.urgent           #671110 #000001 #9e9e91 #671110
 
 bar {
     position top
@@ -173,17 +173,17 @@ bar {
     status_command ~/bin/baraction.sh
 
     colors {                #Border #Backg  #Text
-        focused_workspace   #181818 #272727 #666666
-        active_workspace    #181818 #272727 #666666
-        inactive_workspace  #181818 #181818 #666666
-        urgent_workspace    #181818 #8E4545 #666666
-        background                  #181818
-        statusline                          #666666
-        separator                           #666666
+        focused_workspace   #1a4178 #000001 #9e9e91
+        active_workspace    #040813 #000001 #9e9e91
+        inactive_workspace  #040813 #000001 #9e9e91
+        urgent_workspace    #671110 #000001 #9e9e91
+        background                  #000001
+        statusline                          #9e9e91
+        separator                           #9e9e91
     }
 }
 
 # Autostart
 exec xscreensaver -no-splash
-exec xcompmgr -c -C -t-5 -l-5 -r4.2 -o.70
+exec compton -cCGfFb -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
 exec ~/.fehbg
