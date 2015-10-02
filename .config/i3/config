@@ -162,10 +162,10 @@ bindsym Mod1+r mode "resize"
 # finds out, if available)
 #
                         #Border #backg  #text   #indicator
-client.focused          #3191cb #000001 #9e9e91 #133f48
-client.focused_inactive #040813 #000001 #9e9e91 #1a4178
-client.unfocused        #040813 #000001 #9e9e91 #1a4178
-client.urgent           #671110 #000001 #9e9e91 #671110
+client.focused          #0e678c #000000 #ededed #0e678c
+client.focused_inactive #2b2c30 #000000 #ededed #0e418c
+client.unfocused        #2b2c30 #000000 #ededed #0e418c
+client.urgent           #8c0e22 #000000 #ededed #8c0e22
 
 bar {
     position top
@@ -173,13 +173,13 @@ bar {
     status_command ~/bin/baraction.sh
 
     colors {                #Border #Backg  #Text
-        focused_workspace   #1a4178 #000001 #9e9e91
-        active_workspace    #040813 #000001 #9e9e91
-        inactive_workspace  #040813 #000001 #9e9e91
-        urgent_workspace    #671110 #000001 #9e9e91
-        background                  #000001
-        statusline                          #9e9e91
-        separator                           #9e9e91
+        focused_workspace   #0e678c #000000 #ededed
+        active_workspace    #2b2c30 #000000 #ededed
+        inactive_workspace  #2b2c30 #000000 #ededed
+        urgent_workspace    #8c0e22 #000000 #ededed
+        background                  #000000
+        statusline                          #ededed
+        separator                           #ededed
     }
 }
 
