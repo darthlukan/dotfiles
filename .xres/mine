@@ -1,14 +1,14 @@
 ! mine
 
-#define bg      #000000
-#define fg      #ededed
+#define bg      [90]#000000
+#define fg      #eaeaea
 
-#define blk     #302f2b
-#define bblk    #2b2c30
-#define red     #8c0e22
-#define grn     #0a4d3b
-#define ylw     #6d642d
-#define blu     #0e418c
-#define mag     #332b4f
-#define cyn     #0e678c
-#define wht     #f2f1f0
+#define blk     #0f0f0f
+#define bblk    #333333
+#define red     #ba3c50
+#define grn     #9bbf56
+#define ylw     #feda68
+#define blu     #2b78ba
+#define mag     #665dc9
+#define cyn     #6fabf2
+#define wht     #eaeaea

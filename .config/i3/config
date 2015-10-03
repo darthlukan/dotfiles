@@ -11,8 +11,6 @@
 new_window pixel 1
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:Fantasque Sans Mono 8
 
 # use these keys for focus, movement, and resize directions when reaching for
@@ -158,14 +156,12 @@ mode "resize" {
 
 bindsym Mod1+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#
+# Colors
                         #Border #backg  #text   #indicator
-client.focused          #0e678c #000000 #ededed #0e678c
-client.focused_inactive #2b2c30 #000000 #ededed #0e418c
-client.unfocused        #2b2c30 #000000 #ededed #0e418c
-client.urgent           #8c0e22 #000000 #ededed #8c0e22
+client.focused          #6fabf2 #0f0f0f #eaeaea #6fabf2
+client.focused_inactive #2b78ba #0f0f0f #eaeaea #0e418c
+client.unfocused        #2b78ba #0f0f0f #eaeaea #0e418c
+client.urgent           #ba3c50 #0f0f0f #eaeaea #ba3c50
 
 bar {
     position top
@@ -173,13 +169,13 @@ bar {
     status_command ~/bin/baraction.sh
 
     colors {                #Border #Backg  #Text
-        focused_workspace   #0e678c #000000 #ededed
-        active_workspace    #2b2c30 #000000 #ededed
-        inactive_workspace  #2b2c30 #000000 #ededed
-        urgent_workspace    #8c0e22 #000000 #ededed
-        background                  #000000
-        statusline                          #ededed
-        separator                           #ededed
+        focused_workspace   #6fabf2 #0f0f0f #eaeaea
+        active_workspace    #2b78ba #0f0f0f #eaeaea
+        inactive_workspace  #2b78ba #0f0f0f #eaeaea
+        urgent_workspace    #ba3c50 #0f0f0f #eaeaea
+        background                  #0f0f0f
+        statusline                          #eaeaea
+        separator                           #eaeaea
     }
 }
 
