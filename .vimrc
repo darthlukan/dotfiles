@@ -5,12 +5,12 @@
 "set fileencodings=ucs-bom,utf-8,cp936,big5,euc-jp,euc-kr,gb18030,latin1
 
 set shell=/usr/bin/zsh
-" Begin vundle setup
 set nocompatible
 
 filetype off
 filetype plugin indent off
 
+" Begin vundle setup
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -20,27 +20,28 @@ syntax on
 
 " Bundles
 Bundle 'gmarik/vundle'
-" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'itchyny/lightline.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'Blackrush/vim-gocode', {'rtp': 'vim/'}
 Bundle 'fatih/vim-go'
 Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'junegunn/vim-github-dashboard'
 
 "lightline setup
-set guifont=Fantasque\ Sans\ Mono\ 10
+set guifont=Hack
 set ambiwidth=single
 set laststatus=2
 let g:lightline = {}
-let g:lightline.colorscheme = 'Tomorrow_Night'
+let g:lightline.colorscheme = 'landscape'
 let g:lightline.separator = { 'left': '', 'right': '' }
 let g:lightline.subseparator = { 'left': '', 'right': '' }
+
+" Github Dashboard
+let g:github_dashboard = { 'username': 'darthlukan', 'password': $GITHUB_TOKEN }
 
 " Nerdtree
 map <F2> :NERDTreeToggle<CR>
@@ -85,11 +86,11 @@ let g:tagbar_type_go = {
 
 " pymode
 let g:pymode_python = 'python'
-let g:pymode_rope = 0
+let g:pymode_rope = 1
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_checker = [ "pyflakes", "pep8" ]
 let g:pymode_lint_write = 1
 let g:pymode_virtualenv = 1
 let g:pymode_breakpoint = 1
@@ -98,24 +99,27 @@ let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
+let g:pymode_options_max_line_length = 120
 let g:pymode_folding = 0
 
-
+" Autoformatting and stuff
 augroup vimrc_autocmds
     autocmd!
     " Highlight characters past column 120
     autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
     autocmd FileType python match Excess /\%120v.*/
     autocmd FileType python set nowrap
-    autocmd BufWritePre <buffer> :keepjumps Fmt
+    " Format go files on save
+    autocmd FileType go autocmd BufWritePre <buffer> Fmt
 augroup END
+
+au BufNewFile,BufRead *Pkgfile set filetype=sh
 
 " End vundle setup
 
 set tabstop=4       " Number of spaces that a <Tab> in the file counts for.
- 
+set softtabstop=4
 set shiftwidth=4    " Number of spaces to use for each step of (auto)indent.
- 
 set expandtab       " Use the appropriate number of spaces to insert a <Tab>.
                     " Spaces are used in indents with the '>' and '<' commands
                     " and when 'autoindent' is on. To insert a real tab when
