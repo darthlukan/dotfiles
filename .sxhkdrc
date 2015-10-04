@@ -1,0 +1,44 @@
+alt + shift + e
+	pkill swm
+
+alt + Return
+	urxvt
+
+alt + d
+	dmenu_run
+
+alt + shift + q
+	killw $(pfw)
+
+alt + Escape
+	kill -USR1 -x sxhkd
+
+super + j
+	wmv 0 10 $(pfw)
+super + k
+	wmv 0 -10 $(pfw)
+super + l
+	wmv 10 0 $(pfw)
+super + h
+	wmv -10 0 $(pfw)
+
+alt + !button1
+    wmv -a %i %i
+
+alt + h
+    closest.sh h
+alt + j
+    closest.sh j
+alt + k
+    closest.sh k
+alt + l
+    closest.sh l
+
+alt + shift + l
+	wrs 10 0 $(pfw)
+alt + shift + h
+	wrs -10 0 $(pfw)
+alt + shift + j
+	wrs 0 -10 $(pfw)
+alt + shift + k
+	wrs 0 10 $(pfw)
