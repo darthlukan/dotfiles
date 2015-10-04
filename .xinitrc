@@ -15,6 +15,7 @@ case $WM in
         sxhkd -c $HOME/.sxhkdrc &
         # Because I like my background just fine
         sh $HOME/.fehbg &
+        sh $HOME/bin/compositor &
         swm &
         exec urxvt
         ;;
