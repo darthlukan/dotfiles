@@ -52,12 +52,12 @@ alt + {h,j,k,l}
 # Groups
 #
 # Toggle $GROUP visibility
-alt + {1,2,3,4,5}
-    groups.sh -t {1,2,3,4,5}
+alt + {1,2,3,4,5,0}
+    groups.sh -t {1,2,3,4,5,0}
 
 # Add $WID -> $GROUP
-alt + shift + {1,2,3,4,5}
-    groups.sh -s $(pfw) {1,2,3,4,5}
+alt + shift + {1,2,3,4,5,0}
+    groups.sh -s $(pfw) {1,2,3,4,5,0}
 
 # Clear $WID from $GROUPS
 alt + c
