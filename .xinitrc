@@ -16,9 +16,15 @@ case $WM in
         # Because I like my background just fine
         sh $HOME/.fehbg &
         sh $HOME/bin/compositor &
-        swm &
-        exec urxvt
+        exec swm
         ;;
+    tinywm)
+        sxhkd -c $HOME/.sxhkdrc &
+        sh $HOME/.fehbg &
+        sh $HOME/bin/compositor &
+        exec tinywm
+        ;;
+
     *)
         echo "ERROR! Not risking an insane config, dying..."
         ;;

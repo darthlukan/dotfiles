@@ -1,18 +1,27 @@
+# Primary commands
+#
+# Back to TTY1 with you!
 alt + shift + e
 	pkill swm
 
+# Lifeblood
 alt + Return
 	urxvt
 
+# Run things
 alt + d
 	dmenu_run
 
+# Kill $WID w/ focus
 alt + shift + q
 	killw $(pfw)
 
+# Reload keybinds
 alt + Escape
-	kill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd
+# END Primary Commands
 
+# Movement and Resizing
 super + j
 	wmv 0 10 $(pfw)
 super + k
@@ -22,18 +31,6 @@ super + l
 super + h
 	wmv -10 0 $(pfw)
 
-alt + !button1
-    wmv -a %i %i
-
-alt + h
-    closest.sh h
-alt + j
-    closest.sh j
-alt + k
-    closest.sh k
-alt + l
-    closest.sh l
-
 alt + shift + l
 	wrs 10 0 $(pfw)
 alt + shift + h
@@ -42,3 +39,30 @@ alt + shift + j
 	wrs 0 -10 $(pfw)
 alt + shift + k
 	wrs 0 10 $(pfw)
+
+# For the lazy, use the mouse
+alt + !button1
+    wmv -a %i %i
+
+# For the faithful
+alt + {h,j,k,l}
+    closest.sh  {h,j,k,l}
+# END Movement and Resizing
+
+# Groups
+#
+# Toggle $GROUP visibility
+alt + {1,2,3,4,5}
+    groups.sh -t {1,2,3,4,5}
+
+# Add $WID -> $GROUP
+alt + shift + {1,2,3,4,5}
+    groups.sh -s $(pfw) {1,2,3,4,5}
+
+# Clear $WID from $GROUPS
+alt + c
+    groups.sh -c $(pfw)
+
+# Clear all $GROUPS
+alt + shift + c
+    groups.sh -C
