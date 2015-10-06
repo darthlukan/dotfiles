@@ -3,6 +3,11 @@ dotfiles
 
 Config files that I use on all of my Linux systems.
 
+> wmutils setup:
+
+![wmutils.gif](wmutils.gif)
+[webm](wmutils.webm)
+
 All config files are from my $HOME directory, as such, all configs
 in this repo fall under HOME.  The simplest way of being able
 to use all of these files (if you're that brave) is to clone
