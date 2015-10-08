@@ -1,0 +1,2 @@
+#!/bin/bash
+sh $HOME/bin/baraction.sh | lemonbar -g 1920x10+1920+0 -B \#90000000 -F \#ededed -f "-misc-fixed-medium-r-normal--10-100-75-75-c-60-iso8859-1" -d -p &
