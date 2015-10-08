@@ -21,6 +21,12 @@ alt + Escape
     pkill -USR1 -x sxhkd
 # END Primary Commands
 
+# Convenience
+#
+# Lock screen
+super + shift + l
+    xscreensaver-command -lock
+
 # Movement and Resizing
 super + j
 	wmv 0 10 $(pfw)
@@ -36,9 +42,12 @@ alt + shift + l
 alt + shift + h
 	wrs -10 0 $(pfw)
 alt + shift + j
-	wrs 0 -10 $(pfw)
-alt + shift + k
 	wrs 0 10 $(pfw)
+alt + shift + k
+	wrs 0 -10 $(pfw)
+
+alt + f
+    fullscreen.sh $(pfw)
 
 # For the lazy, use the mouse
 alt + !button1

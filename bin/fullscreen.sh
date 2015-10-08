@@ -29,10 +29,18 @@ if test -f $FSFILE && grep -q $1 $FSFILE; then
     rm -f $FSFILE
 
 else
+    CONN_DISPLAYS=$(xrandr | grep " connected" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/")
+    NUM_DISPLAYS=$(echo $CONN_DISPLAYS | wc -w)
+    # The logic here is to split the total screen width by the number of displays (monitors).
+    # This should place the fullscreen window in the center monitor on a tri-head setup or
+    # the right-most monitor in a dual-head setup.
+    SCREEN_WIDTH=$(($(wattr w $(lsw -r)) / $NUM_DISPLAYS ))
+    SCREEN_HEIGHT=$(wattr h $(lsw -r))
+    CENTER_X=$SCREEN_WIDTH
     # if not, then put the current window in fullscreen mode, after saving its
     # geometry and id to $FSFILE we also remove any border from this window.
     wattr xywhi $1 > $FSFILE
-    wtp $(wattr xywh `lsw -r`) $1
+    wtp $CENTER_X 0 $SCREEN_WIDTH $SCREEN_HEIGHT $1
     chwb -s 0 $1
 fi
 
