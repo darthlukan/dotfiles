@@ -1,31 +1,36 @@
 dotfiles
 ==========
 
-Config files that I use on all of my Linux systems.
 
-> wmutils setup:
+## Description
+
+> Config files that I use on all of my Linux systems.
+
+> Example of my wmutils setup:
 
 ![wmutils.gif](wmutils.gif)
-[webm](wmutils.webm)
 
-All config files are from my $HOME directory, as such, all configs
-in this repo fall under HOME.  The simplest way of being able
-to use all of these files (if you're that brave) is to clone
-this repo and execute:
+> Download [webm](wmutils.webm)
 
-```bash
-	cp -r dotfiles/.* ~/
+
+## Installation
+
+
+> Install [GNU stow](), backup your current configs, then:
+
+```
+    $ git clone git@github.com:darhlukan/dotfiles.git ~/dotfiles
+    $ cd dotfiles
+    $ stow <dir>
 ```
 
-All of my config files will be copied into your home directory.
+> Replace ```<dir>``` with the directory name containing the configs you want to use.  For example, if you wanted to use
+> the same terminal configuration as me, you would run:
 
-For individual config files, simply copy them into your desired
-sub-directories and you're good to go.
+```
+    $ stow urxvt
+```
 
-Please note:
+> The above command will create symlinks for .Xresources, .Xdefaults, and .xres in your $HOME directory.
 
-	All of these config files are used on my Linux systems,
-	specifically, Arch Linux.  Other distros have settings
-	that may override these files by default, the only way
-	to know if your distro does this is to either read through
-	your distro documentation, or "trial and error".
+**IMPORTANT!: You will probably need to go through the configs and make sure to change any hardcoded paths.**
