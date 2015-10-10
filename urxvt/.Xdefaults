@@ -1,0 +1,3 @@
+! lal clock
+lal*width: 150
+lal*format: %H:%M:%S %Y-%m-%d
