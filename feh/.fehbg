@@ -1,2 +1,2 @@
 #!/bin/sh
-feh  --bg-fill '/home/darthlukan/Images/battle.png' 
+feh --no-xinerama --bg-fill '/home/darthlukan/Images/nebulae.jpg' 
