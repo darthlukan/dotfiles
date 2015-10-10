@@ -2,18 +2,15 @@ set from = "darthlukan@gmail.com"
 set realname = "Brian Tomlinson"
 
 set imap_user = "darthlukan@gmail.com"
-
-set smtp_url = "smtp://darthlukan@smtp.gmail.com:587/"
-
-set signature =~/.mutt/signature
+set imap_pass = $GOOGLE_PASS
 
 set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
 set postponed = "+[Google Mail]/Drafts"
-set trash = "+[Google Mail]/Trash"
 set imap_check_subscribed
 set mail_check = 120
 
+set signature =~/.mutt/signature
 set header_cache =~/.mutt/cache/headers
 set message_cachedir =~/.mutt/cache/bodies
 set certificate_file =~/.mutt/certificates
@@ -29,7 +26,9 @@ color normal default default
 # Sidebar --------------------------------------------
 set sidebar_delim   = '  │'
 set sidebar_visible = yes
-set sidebar_width   = 30
+set sidebar_width   = 35
+set sidebar_folderindent = yes
+set sidebar_indentstr = ' '
 
 macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
 macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
@@ -69,7 +68,7 @@ set include                          # include message in replies
 set forward_quote
 
 # Index View Options ---------------------------------
-set date_format = "%m/%d"
+set date_format = " %d/%m"
 set index_format = "[%Z]  %D  %-20.20F  %s"
 set sort = threads                         # like gmail
 set sort_aux = reverse-last-date-received  # like gmail
@@ -116,10 +115,9 @@ set pgp_good_sign="^gpg: Good signature from"
 
 # Colors
 
-## Theme kindly inspired from                                                                                                                                             
-## http://nongeekshandbook.blogspot.ie/2009/03/mutt-color-configuration.html                                                                                              
-
-## Colours for items in the index                                                                                                                                         
+## Theme kindly inspired from
+## http://nongeekshandbook.blogspot.ie/2009/03/mutt-color-configuration.html
+## Colours for items in the index
 color index brightcyan black ~N
 color index brightred black ~O
 color index brightyellow black ~F
@@ -130,18 +128,17 @@ mono index bold ~F
 mono index bold ~T
 mono index bold ~D
 
-## Highlights inside the body of a message.                                                                                                                               
-
-## URLs                                                                                                                                                                    
+## Highlights inside the body of a message.
+## URLs
 color body brightgreen black "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
 color body brightgreen black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
 mono body bold "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
 mono body bold "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
 
-## Email addresses.                                                                                                                                                       
+## Email addresses.
 color body brightgreen black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
 
-## Header                                                                                                                                                                 
+## Header
 color header green black "^from:"
 color header green black "^to:"
 color header green black "^cc:"
@@ -173,7 +170,6 @@ color header yellow black "^X-Spam-Status:"
 color header yellow black "^X-SpamProbe:"
 color header red black "^X-SpamProbe: SPAM"
 
-## Coloring quoted text - coloring the first 7 levels:                                                                                                                    
 color quoted cyan black
 color quoted1 yellow black
 color quoted2 red black
@@ -183,8 +179,6 @@ color quoted5 yellow black
 color quoted6 red black
 color quoted7 green black
 
-## Default color definitions                                                                                                                                              
-#color hdrdefault white green                                                                                                                                             
 color signature brightmagenta black
 color indicator black cyan
 color attachment black green
@@ -196,10 +190,8 @@ color tree brightblue black
 color normal white black
 color tilde green black
 color bold brightyellow black
-#color underline magenta black                                                                                                                                            
 color markers brightcyan black
 
-## Colour definitions when on a mono screen                                                                                                                               
 mono bold bold
 mono underline underline
 mono indicator reverse

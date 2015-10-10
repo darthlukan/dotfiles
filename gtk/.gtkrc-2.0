@@ -3,8 +3,9 @@
 
 include "/home/darthlukan/.gtkrc-2.0.mine"
 gtk-theme-name="Elegant Dark Flat"
-gtk-icon-theme-name="Faenza-Darkest"
+gtk-icon-theme-name="AwOkenDark"
 gtk-font-name="Hack 10"
+gtk-cursor-theme-name="XenonBlue"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
