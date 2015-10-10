@@ -16,7 +16,7 @@ dotfiles
 ## Installation
 
 
-> Install [GNU stow](), backup your current configs, then:
+> Install [GNU stow](https://www.gnu.org/software/stow/), backup your current configs, then:
 
 ```
     $ git clone git@github.com:darhlukan/dotfiles.git ~/dotfiles
