@@ -5,10 +5,10 @@
 
 #define blk     #31322a
 #define bblk    #4e4e4e
-#define red     #994e0d
-#define grn     #664b1e
-#define ylw     #7c692f
-#define blu     #956118
-#define mag     #94490f
-#define cyn     #725b29
-#define wht     #a7a7a7
+#define red     #6d83aa
+#define grn     #6aa926
+#define ylw     #a4dd4e
+#define blu     #1e609a
+#define mag     #8f9ab8
+#define cyn     #7ee8ff
+#define wht     #d3e1ec
