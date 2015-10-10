@@ -3,6 +3,7 @@ import os
 import sys
 import psutil
 import argparse
+import subprocess
 from datetime import datetime
 
 
@@ -52,6 +53,12 @@ def date_time(format_str):
     return datetime.today().strftime('%Y-%m-%d %H:%M:%S')
 
 
+def music():
+    mpc = subprocess.Popen(['mpc current'], stdout=subprocess.PIPE, shell=True)
+    stdout, stderr = mpc.communicate()
+    return 'SONG: {0}'.format(stdout.decode('utf-8').strip())
+
+
 def main():
     parser = argparse.ArgumentParser(
         description='Available argument information.')
@@ -66,11 +73,16 @@ def main():
     parser.add_argument('-dt', '--date-time', type=str, action='store',
                         dest='date_time', default='%Y-%m-%d %H:%M:%S',
                         help='Show the datetime using the following format.')
+    parser.add_argument('-mpc', '--music', type=bool, action='store', dest='music',
+                        help='Show the current music track.')
     args = parser.parse_args()
 
     info_str = ''
 
     if len(sys.argv) > 1:
+        if args.music:
+            info_str += '| {0} '.format(music())
+
         if args.disks:
             info_str += '{0} | '.format(disks(args.disks))
 
