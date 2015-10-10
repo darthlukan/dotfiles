@@ -11,7 +11,7 @@ filetype off
 filetype plugin indent off
 
 " Begin vundle setup
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 filetype plugin on
@@ -19,7 +19,7 @@ filetype plugin indent on
 syntax on
 
 " Bundles
-Bundle 'gmarik/vundle'
+Bundle 'VundleVim/Vundle.vim'
 Bundle 'itchyny/lightline.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
