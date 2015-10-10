@@ -32,7 +32,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'junegunn/vim-github-dashboard'
 
 "lightline setup
-set guifont=Hack
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
 set ambiwidth=single
 set laststatus=2
 let g:lightline = {}
