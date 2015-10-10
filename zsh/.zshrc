@@ -41,9 +41,7 @@ export BROWSER="chromium"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export XDG_CONFIG_HOME="$HOME/.config"
-export GOOGLE_API_KEY="AIzaSyBHSsJCvIS5oANVYX4lvwRLcJxVT9QG3J0"
-export GOOGLE_DEFAULT_CLIENT_ID="782909245165-5rdk7tqt7mfa17d0oqdnctvtgi5vhop1.apps.googleusercontent.com"
-export GOOGLE_DEFAULT_CLIENT_SECRET="nLFIITjDRk7fQKBKQa3OFsY6"
+source ~/.secrets
 
 # GOPATH
 export GOPATH="$HOME/go"
