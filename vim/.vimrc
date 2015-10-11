@@ -36,7 +36,7 @@ set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
 set ambiwidth=single
 set laststatus=2
 let g:lightline = {}
-let g:lightline.colorscheme = 'landscape'
+let g:lightline.colorscheme = 'wombat'
 let g:lightline.separator = { 'left': '', 'right': '' }
 let g:lightline.subseparator = { 'left': '', 'right': '' }
 
