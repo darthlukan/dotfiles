@@ -1,8 +1,13 @@
-set from = "darthlukan@gmail.com"
+set from = "brian.tomlinson@linux.com"
 set realname = "Brian Tomlinson"
 
 set imap_user = "darthlukan@gmail.com"
 set imap_pass = $GOOGLE_PASS
+set smtp_url = "smtp://darthlukan@smtp.gmail.com:587/"
+set smtp_pass = $GOOGLE_PASS
+
+set ssl_starttls=yes
+set ssl_force_tls=yes
 
 set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
