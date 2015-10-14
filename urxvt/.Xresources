@@ -2,8 +2,8 @@
 
 urxvt*geometry:                220x52
 
-URxvt*font:xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=11:style=regular
-URxvt*boldFont:xft:DejaVu\ Sans\ Mono\ Bold\ for\ Powerline:pixelsize=11:style=regular
+URxvt*font:xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=10:style=regular
+URxvt*boldFont:xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=10:style=regular
 
 Xft.antialias: 1
 Xft.autohint: 0
@@ -11,6 +11,7 @@ Xft.dpi: 96
 Xft.hinting: 1
 Xft.hintstyle: hintfull
 
+URxvt*lineSpace: 1
 URxvt*depth: 32
 URxvt*background: bg
 URxvt*foreground: fg
