@@ -4,8 +4,8 @@
 # window focus wrapper that sets borders and can focus next/previous window
 
 BW=${BW:-2}                    # border width
-ACTIVE=${ACTIVE:-0xffffff}     # active border color
-INACTIVE=${INACTIVE:-0x333333} # inactive border color
+ACTIVE=${ACTIVE:-0xa7a7a7}     # active border color
+INACTIVE=${INACTIVE:-0x4e4e4e} # inactive border color
 
 # get current window id
 CUR=$(pfw)
@@ -23,7 +23,7 @@ setborder() {
 
     # do not modify border of fullscreen windows
     if [ -f $HOME/.fwin ]; then
-        wid=cat $HOME/.fwin | grep $2
+        wid=$(cat $HOME/.fwin | awk '{print $5}')
         if [ $wid = $2 ]; then
             return
         fi
