@@ -30,6 +30,7 @@ bindkey -e
 # Aliases
 alias ls='ls --color=always -aF'
 alias less='less -r'
+alias tree='tree -C -L 2'
 alias cat='$HOME/go/bin/gocat'
 
 # Vars
@@ -42,6 +43,9 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export XDG_CONFIG_HOME="$HOME/.config"
 source ~/.secrets
+
+# Scheme and Guile
+export GUILE_AUTO_COMPILE=0
 
 # GOPATH
 export GOPATH="$HOME/go"
