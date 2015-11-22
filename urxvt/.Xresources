@@ -74,3 +74,6 @@ URxvt*loginShell: true
 *color14:     cyn
 *color7:      wht
 *color15:     wht
+
+Emacs*Background: #000000
+Emacs*Foreground: fg
