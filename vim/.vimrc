@@ -35,6 +35,7 @@ Bundle 'junegunn/vim-github-dashboard'
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
 set ambiwidth=single
 set laststatus=2
+
 let g:lightline = {}
 let g:lightline.colorscheme = 'wombat'
 let g:lightline.separator = { 'left': '', 'right': '' }
@@ -111,11 +112,10 @@ augroup vimrc_autocmds
     autocmd FileType python set nowrap
     " Format go files on save
     autocmd FileType go autocmd BufWritePre <buffer> Fmt
+    autocmd BufWritePost $HOME/.vimrc nested source $HOME/.vimrc
 augroup END
 
 au BufNewFile,BufRead *Pkgfile set filetype=sh
-
-" End vundle setup
 
 set tabstop=4       " Number of spaces that a <Tab> in the file counts for.
 set softtabstop=4
@@ -200,5 +200,7 @@ set term=xterm-256color
 
 if has ('gui_running')
     highlight Pmenu guibg=#0a0a0a gui=bold
+else
+    set t_Co=256
 endif
-colorscheme mine
+colorscheme evening
