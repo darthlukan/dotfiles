@@ -47,7 +47,7 @@ URxvt.color7:  wht
 URxvt.color15: wht
 
 URxvt.perl-ext-common:  default,matcher,vtwheel,clipboard
-URxvt.url-launcher:      /usr/bin/chromium
+URxvt.url-launcher:      /usr/bin/vivaldi
 URxvt.matcher.button:   1
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
