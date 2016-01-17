@@ -44,6 +44,10 @@ export LC_ALL="en_US.UTF-8"
 export XDG_CONFIG_HOME="$HOME/.config"
 source ~/.secrets
 
+# .deb packaging
+export DEBFULLNAME="Brian Tomlinson"
+export DEBEMAIL="darthlukan@gmail.com"
+
 # Scheme and Guile
 export GUILE_AUTO_COMPILE=0
 
