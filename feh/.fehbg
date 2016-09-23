@@ -1,2 +1,1 @@
-#!/bin/sh
-feh --no-xinerama --bg-fill '/home/darthlukan/Images/shower.jpg' 
+feh  --bg-scale '/home/darthlukan/Downloads/wallpaper_1920 x 1080 wallpaper.jpg'

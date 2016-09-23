@@ -23,9 +23,9 @@ Bundle 'VundleVim/Vundle.vim'
 Bundle 'itchyny/lightline.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
-Bundle 'klen/python-mode'
-Bundle 'fatih/vim-go'
 Bundle 'scrooloose/syntastic'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'fatih/vim-go'
 Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
 Bundle 'airblade/vim-gitgutter'
@@ -51,10 +51,21 @@ map <F2> :NERDTreeToggle<CR>
 map <F3> :TagbarToggle<CR>
 
 " Sytastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "context"
+
+"YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion = 1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " gotags
 let g:tagbar_type_go = {
@@ -85,23 +96,6 @@ let g:tagbar_type_go = {
             \ 'ctagsargs' : '-sort -silent'
 \ }
 
-" pymode
-let g:pymode_python = 'python'
-let g:pymode_rope = 1
-let g:pymode_doc = 1
-let g:pymode_doc_key = 'K'
-let g:pymode_lint = 1
-let g:pymode_lint_checker = [ "pyflakes", "pep8" ]
-let g:pymode_lint_write = 1
-let g:pymode_virtualenv = 1
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_key = '<leader>b'
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-let g:pymode_options_max_line_length = 120
-let g:pymode_folding = 0
 
 " Autoformatting and stuff
 augroup vimrc_autocmds
@@ -110,13 +104,25 @@ augroup vimrc_autocmds
     autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
     autocmd FileType python match Excess /\%120v.*/
     autocmd FileType python set nowrap
+    autocmd FileType python set tabstop=4
+    autocmd FileType python set softtabstop=4
+    autocmd FileType python set shiftwidth=4
+    autocmd FileType python set textwidth=120
+    autocmd FileType python set expandtab
+    autocmd FileType python set autoindent
+    autocmd FileType python set fileformat=unix
     " Format go files on save
     autocmd FileType go autocmd BufWritePre <buffer> Fmt
     autocmd BufWritePost $HOME/.vimrc nested source $HOME/.vimrc
 augroup END
 
 au BufNewFile,BufRead *Pkgfile set filetype=sh
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
 
+set encoding=utf-8
 set tabstop=4       " Number of spaces that a <Tab> in the file counts for.
 set softtabstop=4
 set shiftwidth=4    " Number of spaces to use for each step of (auto)indent.
@@ -203,4 +209,3 @@ if has ('gui_running')
 else
     set t_Co=256
 endif
-colorscheme evening
