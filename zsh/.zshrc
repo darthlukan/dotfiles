@@ -1,10 +1,10 @@
-# The following lines were added by compinstall 
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate 
-zstyle ':completion:*' completions 1 
-zstyle ':completion:*' format ''\''Completing %d'\''' 
+# The following lines were added by compinstall
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' completions 1
+zstyle ':completion:*' format ''\''Completing %d'\'''
 zstyle ':completion:*' glob 1
-zstyle ':completion:*' group-name '' 
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} 
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=** r:|=**' '+m:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 zstyle ':completion:*' max-errors 2 numeric
 zstyle ':completion:*' menu select=1
@@ -32,17 +32,21 @@ alias ls='ls --color=always -aF'
 alias less='less -r'
 alias tree='tree -C -L 2'
 alias cat='$HOME/go/bin/gocat'
+alias fatfiles='find $(pwd) -xdev -type f -size +1000M'
 
 # Vars
 export TERMINAL="urxvt"
 export TERM="xterm-256color"
 export EDITOR="vim"
 export RTV_EDITOR=$EDITOR
-export BROWSER="chromium"
+export BROWSER="google-chrome"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export XDG_CONFIG_HOME="$HOME/.config"
 source ~/.secrets
+
+# snaps
+export SNAP_PATH="/snap"
 
 # .deb packaging
 export DEBFULLNAME="Brian Tomlinson"
@@ -51,11 +55,18 @@ export DEBEMAIL="darthlukan@gmail.com"
 # Scheme and Guile
 export GUILE_AUTO_COMPILE=0
 
+# Python
+export WORKON_HOME="$HOME/.virtualenvs"
+# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
 # GOPATH
 export GOPATH="$HOME/go"
 
+# Rust
+export CARGO_PATH="$HOME/.cargo"
+
 # $PATH
-export PATH=$PATH:$HOME/bin:$GOPATH/bin:/sbin:/usr/sbin
+export PATH=$PATH:$HOME/bin:$GOPATH/bin:$CARGO_PATH/bin:/sbin:/usr/sbin:$SNAP_PATH/bin
 
 # Java Fonts
 export JAVA_FONTS=/usr/share/fonts/TTF
@@ -68,7 +79,7 @@ build_prompt() {
     local p
     p=()
     if [[ $UID -eq 0 ]]; then
-        p+="%{$fg[yellow]%}⚡" 
+        p+="%{$fg[yellow]%}⚡"
     else
         p+="%{$fg[green]%}⊡"
     fi
