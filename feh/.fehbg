@@ -1,1 +1,2 @@
-feh  --bg-scale '/home/darthlukan/Downloads/wallpaper_1920 x 1080 wallpaper.jpg'
+#!/bin/sh
+feh  --bg-scale '/home/darthlukan/Images/deadpool.jpg' 
