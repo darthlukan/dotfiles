@@ -66,7 +66,7 @@ export GOPATH="$HOME/go"
 export CARGO_PATH="$HOME/.cargo"
 
 # $PATH
-export PATH=$PATH:$HOME/bin:$GOPATH/bin:$CARGO_PATH/bin:/sbin:/usr/sbin:$SNAP_PATH/bin
+export PATH=$PATH:$HOME/bin:$GOPATH/bin:$CARGO_PATH/bin:/sbin:/usr/sbin:$SNAP_PATH/bin:/usr/local/bin
 
 # Java Fonts
 export JAVA_FONTS=/usr/share/fonts/TTF

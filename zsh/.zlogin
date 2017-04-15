@@ -1,3 +1,3 @@
-setxkbmap no
+setxkbmap us
 # Music for me :)
-[ ! -s $HOME/.config/mpd/pid ] && mpd $HOME/.config/mpd/mpd.conf
+# [ ! -s $HOME/.config/mpd/pid ] && mpd $HOME/.config/mpd/mpd.conf
