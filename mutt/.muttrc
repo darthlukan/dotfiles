@@ -2,16 +2,21 @@ set from = "brian.tomlinson@linux.com"
 set realname = "Brian Tomlinson"
 
 set imap_user = "darthlukan@gmail.com"
-set imap_pass = $GOOGLE_PASS
-set smtp_url = "smtp://darthlukan@smtp.gmail.com:587/"
-set smtp_pass = $GOOGLE_PASS
+set imap_pass = "$GOOGLE_PASS"
 
-set ssl_starttls=yes
-set ssl_force_tls=yes
+set smtp_url = "smtp://$imap_user@smtp.gmail.com:587/"
+set smtp_pass = "$GOOGLE_PASS"
+set smtp_authenticators="PLAIN"
+
+set sendmail = "/usr/bin/msmtp"
+
+set ssl_starttls = yes
+set ssl_force_tls = yes
 
 set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
-set postponed = "+[Google Mail]/Drafts"
+set trash = "+[Gmail]/Trash"
+set postponed = "+[Gmail]/Drafts"
 set imap_check_subscribed
 set mail_check = 120
 
@@ -29,11 +34,12 @@ set editor = "vim"
 color normal default default
 
 # Sidebar --------------------------------------------
-set sidebar_delim   = '  │'
+set sidebar_short_path
+set sidebar_delim_chars   = '/'
 set sidebar_visible = yes
 set sidebar_width   = 35
-set sidebar_folderindent = yes
-set sidebar_indentstr = ' '
+set sidebar_folder_indent = yes
+set sidebar_indent_string = ' '
 
 macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
 macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
