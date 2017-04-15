@@ -8,7 +8,7 @@ from datetime import datetime
 
 
 def convert_bytes(data):
-    return float(data/1024/1024/1024)
+    return float(data / 1024 / 1024 / 1024)
 
 
 def load():
@@ -20,8 +20,7 @@ def load():
 def mem():
     m = psutil.virtual_memory()
     total = '{0:.2f}'.format(convert_bytes(m.total))
-    used = '{0:.2f}'.format(
-        convert_bytes(m.total) * (m.percent/100))
+    used = '{0:.2f}'.format(convert_bytes(m.total) * (m.percent / 100))
 
     return 'RAM: {0}/{1}GB'.format(used, total)
 
@@ -62,19 +61,50 @@ def music():
 def main():
     parser = argparse.ArgumentParser(
         description='Available argument information.')
-    parser.add_argument('-d', '--disks', nargs='*', type=str, action='store',
-                        dest='disks', help='The disks to lookup.')
-    parser.add_argument('-c', '--cpu', type=bool, action='store', dest='cpu',
-                        help='Whether or not to show CPU usage.')
-    parser.add_argument('-m', '--mem', type=bool, action='store', dest='mem',
-                        help='Whether or not to show Memory usage.')
-    parser.add_argument('-l', '--load', type=bool, action='store', dest='load',
-                        help='Whether or not to show Load averages.')
-    parser.add_argument('-dt', '--date-time', type=str, action='store',
-                        dest='date_time', default='%Y-%m-%d %H:%M:%S',
-                        help='Show the datetime using the following format.')
-    parser.add_argument('-mpc', '--music', type=bool, action='store', dest='music',
-                        help='Show the current music track.')
+    parser.add_argument(
+        '-d',
+        '--disks',
+        nargs='*',
+        type=str,
+        action='store',
+        dest='disks',
+        help='The disks to lookup.')
+    parser.add_argument(
+        '-c',
+        '--cpu',
+        type=bool,
+        action='store',
+        dest='cpu',
+        help='Whether or not to show CPU usage.')
+    parser.add_argument(
+        '-m',
+        '--mem',
+        type=bool,
+        action='store',
+        dest='mem',
+        help='Whether or not to show Memory usage.')
+    parser.add_argument(
+        '-l',
+        '--load',
+        type=bool,
+        action='store',
+        dest='load',
+        help='Whether or not to show Load averages.')
+    parser.add_argument(
+        '-dt',
+        '--date-time',
+        type=str,
+        action='store',
+        dest='date_time',
+        default='%Y-%m-%d %H:%M:%S',
+        help='Show the datetime using the following format.')
+    parser.add_argument(
+        '-mpc',
+        '--music',
+        type=bool,
+        action='store',
+        dest='music',
+        help='Show the current music track.')
     args = parser.parse_args()
 
     info_str = ''
