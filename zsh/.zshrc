@@ -24,7 +24,8 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 setopt appendhistory autocd beep extendedglob nomatch notify
-bindkey -e
+# Vi mode
+bindkey -v
 # End of lines configured by zsh-newuser-install
 
 # Aliases
@@ -75,7 +76,10 @@ export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndF
 # Prompt
 autoload -U colors; colors # Colors are good
 
-build_prompt() {
+function ins-mode() { echo "λ" }
+function cmd-mode() { echo "Ω" }
+
+function build_prompt() {
     local p
     p=()
     if [[ $UID -eq 0 ]]; then
@@ -85,5 +89,38 @@ build_prompt() {
     fi
     [[ -n $p ]] && echo "$p"  # Need 'echo' or the color escapes cause errors
 }
-# Engage
-PROMPT=" $(build_prompt)%{$reset_color%} ❱ "  # Spaces count!
+
+function TRAPINT() {
+    VIM_MODE=$(ins-mode)
+    zle && zle reset-prompt
+    return $(( 128 + $1 ))
+}
+
+function set-prompt() {
+    case ${KEYMAP} in
+        (vicmd)
+            VIM_MODE="%{$fg[red]%}$(cmd-mode)"
+            ;;
+        (main | viins)
+            VIM_MODE="%{$fg[green]%}$(ins-mode)"
+            ;;
+        (*)
+            VIM_MODE="%{$fg[green]%}$(ins-mode)"
+            ;;
+    esac
+
+    PROMPT=" ${VIM_MODE}%{$reset_color%} $(build_prompt)%{$reset_color%} ❱ "
+}
+
+function zle-line-init zle-keymap-select {
+  set-prompt
+  zle && zle reset-prompt
+}
+
+function zle-line-finish {
+    VIM_MODE=$(ins-mode)
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
