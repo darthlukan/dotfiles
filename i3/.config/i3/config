@@ -24,7 +24,7 @@ set $right l
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec urxvt
+bindsym Mod1+Return exec lxterminal
 
 # kill focused window
 bindsym Mod1+Shift+q kill
@@ -128,7 +128,7 @@ bindsym Mod1+Shift+r restart
 bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # lock the screen
-bindsym Mod4+Shift+l exec "xscreensaver-command -lock"
+bindsym Mod4+Shift+l exec "i3lock -i /home/btomlins/Pictures/backgrounds/unix-cli.png -f"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -156,30 +156,40 @@ mode "resize" {
 
 bindsym Mod1+r mode "resize"
 
+# Media Keys
+## Screen Brightness
+bindsym XF86MonBrightnessUp exec xbacklight +10
+bindsym XF86MonBrightnessDown exec xbacklight -10
+## Volume and Mute
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-volume 0 toggle
+
 # Colors
                         #Border #backg  #text   #indicator
-client.focused          #6fabf2 #0f0f0f #eaeaea #6fabf2
-client.focused_inactive #2b78ba #0f0f0f #eaeaea #0e418c
-client.unfocused        #2b78ba #0f0f0f #eaeaea #0e418c
-client.urgent           #ba3c50 #0f0f0f #eaeaea #ba3c50
+client.focused          #a30000 #1e1e1e #f0f0f0 #a30000
+client.focused_inactive #820000 #1e1e1e #f0f0f0 #820000
+client.unfocused        #6e0000 #1e1e1e #f0f0f0 #0e418c
+client.urgent           #cc0000 #1e1e1e #f0f0f0 #cc0000
 
 bar {
     position top
-    tray_output DP-4
-    status_command ~/bin/baraction.sh
+    tray_output eDP1
+    # status_command ~/bin/baraction.sh
+    status_command i3status
 
     colors {                #Border #Backg  #Text
-        focused_workspace   #6fabf2 #0f0f0f #eaeaea
-        active_workspace    #2b78ba #0f0f0f #eaeaea
-        inactive_workspace  #2b78ba #0f0f0f #eaeaea
-        urgent_workspace    #ba3c50 #0f0f0f #eaeaea
-        background                  #0f0f0f
-        statusline                          #eaeaea
-        separator                           #eaeaea
+        focused_workspace   #a30000 #1e1e1e #f0f0f0
+        active_workspace    #820000 #1e1e1e #f0f0f0
+        inactive_workspace  #6e0000 #1e1e1e #f0f0f0
+        urgent_workspace    #cc0000 #1e1e1e #f0f0f0
+        background                  #1e1e1e
+        statusline                          #f0f0f0
+        separator                           #f0f0f0
     }
 }
 
 # Autostart
-exec xscreensaver -no-splash
-exec compton -cCGfFb -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
 exec ~/.fehbg
+exec compton -cCGfFb -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
+exec nm-applet
