@@ -17,29 +17,13 @@ general {
 order += "disk /"
 order += "disk /home"
 order += "run_watch DHCP"
-order += "ethernet enp3s0"
+order += "path_exists VPN"
+order += "ethernet enp0s31f6"
+order += "wireless wlp61s0"
 order += "load"
 order += "volume master"
+order += "battery 0"
 order += "tztime local"
-
-
-ethernet enp3s0 {
-        # if you use %speed, i3status requires root privileges
-        format_up = "E: %ip"
-        format_down = "E: down"
-}
-
-run_watch DHCP {
-        pidfile = "/run/dhcpcd*.pid"
-}
-
-tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
-}
-
-load {
-        format = "%1min"
-}
 
 disk "/" {
         format = "$ROOT %used/%total"
@@ -49,9 +33,47 @@ disk "/home" {
         format = "$HOME %used/%total"
 }
 
+#run_watch DHCP {
+#        pidfile = "/run/dhclient-*.pid"
+#}
+
+path_exists VPN {
+        path = "/proc/sys/net/ipv4/conf/tun0"
+}
+
+ethernet enp0s31f6 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "E: %ip"
+        format_down = "E: down"
+}
+
+wireless wlp61s0 {
+        format_up = "W: (%quality at %essid, %bitrate / %frequency) %ip"
+        format_down = "W: down"
+}
+
+load {
+        format = "%1min"
+}
+
 volume master {
         format = "♪: %volume"
         device = "default"
         mixer = "Master"
         mixer_idx = 0
+}
+
+battery 0 {
+    format = "%status %percentage %remaining %emptytime"
+    format_down = "No battery"
+    status_chr = "⚡"
+    status_bat = "🔋"
+    status_unk = "?"
+    status_full = "☻"
+    path = "/sys/class/power_supply/BAT%d/uevent"
+    low_threshold = 10
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
 }

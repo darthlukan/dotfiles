@@ -21,11 +21,11 @@ syntax on
 " Bundles
 Bundle 'VundleVim/Vundle.vim'
 Bundle 'itchyny/lightline.vim'
-Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'fatih/vim-go'
+Bundle 'Blackrush/vim-gocode'
+Bundle 'tpope/vim-fugitive'
 Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
 Bundle 'airblade/vim-gitgutter'
@@ -59,13 +59,14 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_go_checkers = ['golint', 'govet']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+" vim-go
+let g:go_list_type = "quickfix"
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "context"
-
-"YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion = 1
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " gotags
 let g:tagbar_type_go = {
@@ -113,14 +114,33 @@ augroup vimrc_autocmds
     autocmd FileType python set fileformat=unix
     " Format go files on save
     autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+    autocmd FileType yaml set tabstop=2
+    autocmd FileType yaml set softtabstop=2
+    autocmd FileType yaml set shiftwidth=2
+
+    autocmd FileType yml set tabstop=2
+    autocmd FileType yml set softtabstop=2
+    autocmd FileType yml set shiftwidth=2
+
+    autocmd FileType javascript set tabstop=2
+    autocmd FileType javascript set softtabstop=2
+    autocmd FileType javascript set shiftwidth=2
+
+    autocmd FileType html set set tabstop=2
+    autocmd FileType html set softtabstop=2
+    autocmd FileType html set shiftwidth=2
+
+    autocmd FileType css set set tabstop=2
+    autocmd FileType css set softtabstop=2
+    autocmd FileType css set shiftwidth=2
+
     autocmd BufWritePost $HOME/.vimrc nested source $HOME/.vimrc
 augroup END
 
 au BufNewFile,BufRead *Pkgfile set filetype=sh
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+
+
 
 set encoding=utf-8
 set tabstop=4       " Number of spaces that a <Tab> in the file counts for.
@@ -189,7 +209,6 @@ set background=dark " When set to "dark", Vim will try to use colors that look
                     " Any other value is illegal.
  
 set mouse=a         " Enable the use of the mouse.
-set laststatus=2
 set showtabline=2
 set noshowmode
 set autochdir
@@ -199,7 +218,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 set noundofile
-set completeopt=longest,menuone
+set autochdir
+" set spell spelllang=en_us
+" set completeopt=longest,menuone
 set omnifunc=syntaxcomplete#Complete
 set termencoding=utf-8
 set term=xterm-256color

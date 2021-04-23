@@ -1,2 +1,2 @@
 #!/bin/sh
-feh  --bg-scale '/home/darthlukan/Images/deadpool.jpg' 
+feh --no-fehbg --bg-scale '/home/btomlins/Pictures/backgrounds/Red_Hat-1920x1080_black.png' 

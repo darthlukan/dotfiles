@@ -161,9 +161,11 @@ bindsym Mod1+r mode "resize"
 bindsym XF86MonBrightnessUp exec xbacklight +10
 bindsym XF86MonBrightnessDown exec xbacklight -10
 ## Volume and Mute
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-volume 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+## Microphone Mute Toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Colors
                         #Border #backg  #text   #indicator
@@ -193,3 +195,5 @@ bar {
 exec ~/.fehbg
 exec compton -cCGfFb -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
 exec nm-applet
+exec SpiderOakGroups
+exec bluemon-applet
