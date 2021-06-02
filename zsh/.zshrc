@@ -40,11 +40,11 @@ export TERMINAL="urxvt"
 export TERM="xterm-256color"
 export EDITOR="vim"
 export RTV_EDITOR=$EDITOR
-export BROWSER="google-chrome"
+export BROWSER="firefox"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export XDG_CONFIG_HOME="$HOME/.config"
-source ~/.secrets
+source $HOME/.secrets
 
 # snaps
 export SNAP_PATH="/snap"
