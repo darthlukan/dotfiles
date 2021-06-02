@@ -18,8 +18,8 @@ order += "disk /"
 order += "disk /home"
 order += "run_watch DHCP"
 order += "path_exists VPN"
-order += "ethernet enp0s31f6"
-order += "wireless wlp61s0"
+order += "ethernet enp9s0u2u1u2"
+order += "wireless wlp0s20f3"
 order += "load"
 order += "volume master"
 order += "battery 0"
@@ -41,13 +41,13 @@ path_exists VPN {
         path = "/proc/sys/net/ipv4/conf/tun0"
 }
 
-ethernet enp0s31f6 {
+ethernet enp9s0u2u1u2 {
         # if you use %speed, i3status requires root privileges
         format_up = "E: %ip"
         format_down = "E: down"
 }
 
-wireless wlp61s0 {
+wireless wlp0s20f3 {
         format_up = "W: (%quality at %essid, %bitrate / %frequency) %ip"
         format_down = "W: down"
 }

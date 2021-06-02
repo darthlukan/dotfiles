@@ -158,8 +158,8 @@ bindsym Mod1+r mode "resize"
 
 # Media Keys
 ## Screen Brightness
-bindsym XF86MonBrightnessUp exec xbacklight +10
-bindsym XF86MonBrightnessDown exec xbacklight -10
+bindsym XF86MonBrightnessUp exec xbacklight +5
+bindsym XF86MonBrightnessDown exec xbacklight -5
 ## Volume and Mute
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -176,7 +176,7 @@ client.urgent           #cc0000 #1e1e1e #f0f0f0 #cc0000
 
 bar {
     position top
-    tray_output eDP1
+    tray_output primary
     # status_command ~/bin/baraction.sh
     status_command i3status
 

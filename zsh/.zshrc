@@ -32,7 +32,7 @@ bindkey -v
 alias ls='ls --color=always -aF'
 alias less='less -r'
 alias tree='tree -C -L 2'
-alias cat='$HOME/go/bin/gocat'
+#alias cat='$HOME/go/bin/gocat'
 alias fatfiles='find $(pwd) -xdev -type f -size +1000M'
 
 # Vars
