@@ -1,28 +1,42 @@
 #!/usr/bin/env python3
 
 from os import getenv
-from subprocess import run, CalledProcessError
+from subprocess import run
 
 USER = getenv('USER')
-KEYTAB = "/home/{}/.{}.keytab".format(USER, USER)
+HOME = getenv('HOME')
+KEYTAB = "{}/.{}.keytab".format(HOME, USER)
 
 
 def login():
-    run(["kinit -kt {0} {1}@REDHAT.COM".format(KEYTAB, USER)], shell=False, capture_output=None)
+    state = False
+    try:
+        run(["/usr/bin/kinit", "-kt", "{0}".format(KEYTAB), "{1}@REDHAT.COM".format(USER)], shell=True)
+        state = True
+    except Exception as e:
+        print(e.message)
+        state = False
+
+    return state
 
 
 def refresh():
-    run(['kinit', '-R'], shell=False, capture_output=False)
+    state = False
+    try:
+        run(['kinit', '-R', "{}@REDHAT.COM".format(USER)], shell=False)
+        state = True
+    except Exception:
+        state = False 
+
+    return state
 
 
 def main():
-    try:
-        refresh()
-    except CalledProcessError:
-        try:
-            login()
-        except (Exception, CalledProcessError) as e:
-            print(e.message)
+    refreshed = refresh()
+    if not refreshed:
+        return login()
+
+    return refreshed
 
 
 if __name__ == '__main__':
