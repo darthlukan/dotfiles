@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/usr/bin/sh
 feh --no-fehbg --bg-scale '/home/btomlins/Pictures/backgrounds/Red_Hat-1920x1080_black.png' 

@@ -128,7 +128,7 @@ bindsym Mod1+Shift+r restart
 bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # lock the screen
-bindsym Mod4+Shift+l exec "i3lock -i /home/btomlins/Pictures/backgrounds/unix-cli.png -f"
+bindsym Mod4+Shift+l exec "i3lock -i /home/btomlins/Pictures/backgrounds/Red_Hat-1920x1080_black.png -f"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -158,8 +158,8 @@ bindsym Mod1+r mode "resize"
 
 # Media Keys
 ## Screen Brightness
-bindsym XF86MonBrightnessUp exec xbacklight +5
-bindsym XF86MonBrightnessDown exec xbacklight -5
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 ## Volume and Mute
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
