@@ -36,6 +36,7 @@ alias tree='tree -C -L 2'
 alias fatfiles='find $(pwd) -xdev -type f -size +1000M'
 
 # Vars
+export vblank_mode=0
 export TERMINAL="urxvt"
 export TERM="xterm-256color"
 export EDITOR="vim"
@@ -65,6 +66,9 @@ export GOPATH="$HOME/go"
 
 # Rust
 export CARGO_PATH="$HOME/.cargo"
+
+# Raspberry Pi Pico
+export PICO_SDK_PATH="$HOME/projects/pico-sdk"
 
 # $PATH
 export PATH=$PATH:$HOME/bin:$GOPATH/bin:$CARGO_PATH/bin:/sbin:/usr/sbin:$SNAP_PATH/bin:/usr/local/bin
