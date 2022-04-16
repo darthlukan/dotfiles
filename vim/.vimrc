@@ -23,6 +23,7 @@ Bundle 'VundleVim/Vundle.vim'
 Bundle 'itchyny/lightline.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
+Bundle 'sheerun/vim-polyglot'
 Bundle 'fatih/vim-go'
 Bundle 'Blackrush/vim-gocode'
 Bundle 'tpope/vim-fugitive'
@@ -30,6 +31,7 @@ Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'junegunn/vim-github-dashboard'
+Bundle 'mikebentley15/vim-pio'
 
 "lightline setup
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
@@ -96,6 +98,10 @@ let g:tagbar_type_go = {
             \ 'ctagsbin' : 'gotags',
             \ 'ctagsargs' : '-sort -silent'
 \ }
+
+" Language Plugin Configs
+let g:loaded_python_provider = 0
+let g:python3_host_prog = '/usr/bin/python3'
 
 
 " Autoformatting and stuff
@@ -212,7 +218,7 @@ set mouse=a         " Enable the use of the mouse.
 set showtabline=2
 set noshowmode
 set autochdir
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set colorcolumn=120
 set nobackup
 set nowritebackup
@@ -223,7 +229,7 @@ set autochdir
 " set completeopt=longest,menuone
 set omnifunc=syntaxcomplete#Complete
 set termencoding=utf-8
-set term=xterm-256color
+" set term=xterm-256color
 
 if has ('gui_running')
     highlight Pmenu guibg=#0a0a0a gui=bold
