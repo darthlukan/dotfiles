@@ -1,1 +1,4 @@
 alias ls='ls -aF --color=always'
+alias less='less -r'
+alias tree='tree -C -L 2'
+alias fatfiles='find $(pwd) -xdev -type f -size +1000M'
