@@ -48,7 +48,8 @@ function parse_git_dirty {
 function is_toolbox() {
     if [ "${HOSTNAME}" == "toolbox" ]
     then
-        echo "[${HOSTNAME}]"
+        TOOLBOX_NAME=$(cat /run/.containerenv | grep -oP "(?<=name=\")[^\";]+")
+        echo "[${HOSTNAME} ${TOOLBOX_NAME}]"
     fi
 }
 
