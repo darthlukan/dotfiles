@@ -32,8 +32,8 @@ output * bg /var/home/btomlins/Pictures/backgrounds/Red_Hat-1920x1080_black.png 
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output eDP-1 resolution 1920x1080 position 0,0
-output DP-4 disable
-# output DP-4 resolution 1920x1080 position 1920,0
+# output DP-4 disable
+output DP-4 resolution 1920x1080 position 1920,0
 
 default_border pixel
 ### Idle configuration
