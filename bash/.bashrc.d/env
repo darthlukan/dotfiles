@@ -10,6 +10,9 @@ export BROWSER="firefox"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export XDG_CONFIG_HOME="$HOME/.config"
+export GPG_TTY=$(tty)
+export GPG_KEY=2BDBA01B6DC183E6C2267A982B4EC7573694569D
+
 source $HOME/.secrets
 
 # snaps
